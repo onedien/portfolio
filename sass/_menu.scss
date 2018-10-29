@@ -32,3 +32,121 @@
         }
     }
 }
+
+// menu overlay
+.menu {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    opacity: 0.9;
+    visibility: hidden;
+
+    &.show {
+        visibility: visible;
+    }
+
+    &-branding,
+    &-nav {
+        display: flex;
+        flex-flow: column wrap;
+        align-items: center;
+        justify-content: center;
+        float: left;
+        width: 50%;
+        height: 100vh;
+        overflow: hidden;
+    }
+
+    &-nav {
+        margin: 0;
+        padding: 0;
+        background: darken($primary-color, 5);
+        list-style: none;
+        transform: translate3d(0, -100%, 0);
+        @include easeInOut;
+        
+        &.show {
+            transform: translate3d(0, 0, 0);
+        }
+    }
+    // branding side
+    &-branding {
+        background: $primary-color;
+        transform: translate3d(0, 100%, 0);
+        @include easeInOut;
+        
+        &.show {
+            transform: translate3d(0, 0, 0);
+            
+        }
+
+        
+    }
+
+    .portrait {
+        width: 250px;
+        height: 250px;
+        background: url('../img/b3.jpg');
+        border-radius: 50%;
+        border: 3px solid blue;
+        transform: translate3d(-600px, 0, 0);
+
+        @include easeInOut;
+
+        &.show {
+            transform: translate3d(0, 0, 0);
+
+        }
+    }
+
+    .nav-item {
+        // transform: translate3d(0, 0, 100px);
+        transform: scale(0.01);
+        
+        @include easeInOut;
+
+        &.show {
+            // transform: translate3d(0, 0, 0);
+            transform: scale(1);
+
+            
+        }
+    }
+
+    
+
+    .nav-link {
+        display: inline-block;
+        position: relative;
+        font-size: 30px;
+        text-transform: uppercase;
+        padding: 1rem 0;
+        font-weight: 300;
+        color: #fff;
+        @include easeInOut;
+        
+        &:hover {
+            color: red;
+        }
+    }
+
+    
+}
+
+@for $x from 1 through 10 {
+    .nav-item {
+        &.show:nth-child(#{$x}) {
+            // animation: bounce 1s ease-out;
+            transition-delay: $x * 0.1s;
+            // animation-delay: $x * 0.1s;
+            // transform: scale(1);
+
+            // animation-iteration-count: 1;
+        }
+    }
+    .portrait {
+        transition-delay: $x * 0.1s;
+
+    }
+
+}

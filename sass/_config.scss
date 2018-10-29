@@ -1,5 +1,7 @@
 $primary-color: #444;
 $secondary-color: #eb0000;
+$dark-blue: darkblue;
+$light-blue: rgba(0, 72, 228, 0.767);
 $show-home-image: true;
 $show-image: url(../img/b6.jpg);
 $background-opacity: 0.9;
@@ -7,6 +9,10 @@ $background-opacity: 0.9;
 @mixin easeInOut {
     transition: all 0.5s ease-in-out;
 
+}
+
+@mixin easeOut{
+    transition: all 0.5s ease-out;
 }
 
 @mixin background {
@@ -30,5 +36,17 @@ $background-opacity: 0.9;
         }
 
         
+    }
+}
+
+@keyframes bounce {
+    from { 
+        transform: scale(0.01); 
+    }
+    // 50% { 
+    //     transform: scale(2); 
+    // }
+    to {
+        transform: scale(1);
     }
 }
