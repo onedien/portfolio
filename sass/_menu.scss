@@ -78,9 +78,8 @@
         &.show {
             transform: translate3d(0, 0, 0);
             
+            
         }
-
-        
     }
 
     .portrait {
@@ -90,14 +89,18 @@
         border-radius: 50%;
         border: 3px solid blue;
         transform: translate3d(-600px, 0, 0);
+        // transition-delay: 0.2s;
+        
 
         @include easeInOut;
 
         &.show {
             transform: translate3d(0, 0, 0);
-
+            transition-delay: 0.2s;
         }
     }
+
+    
 
     .nav-item {
         // transform: translate3d(0, 0, 100px);
@@ -113,8 +116,6 @@
         }
     }
 
-    
-
     .nav-link {
         display: inline-block;
         position: relative;
@@ -128,9 +129,7 @@
         &:hover {
             color: red;
         }
-    }
-
-    
+    }  
 }
 
 @for $x from 1 through 10 {
@@ -143,10 +142,6 @@
 
             // animation-iteration-count: 1;
         }
-    }
-    .portrait {
-        transition-delay: $x * 0.1s;
-
-    }
-
+    }    
 }
+
