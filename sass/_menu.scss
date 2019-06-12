@@ -11,7 +11,7 @@
         width: 28px;
         height: 3px;
         margin: 0 0 5px 0;
-        background: #fff;
+        background: set-text-color($primary-color);
         @include easeInOut();
     }
 
@@ -60,6 +60,7 @@
     &-nav {
         margin: 0;
         padding: 0;
+        border-left: 0.5px solid red;
         background: darken($primary-color, 5);
         list-style: none;
         transform: translate3d(0, -100%, 0);
@@ -72,6 +73,7 @@
     // branding side
     &-branding {
         background: $primary-color;
+        border-right: 0.5px solid red;
         transform: translate3d(0, 100%, 0);
         @include easeInOut;
         
@@ -85,18 +87,21 @@
     .portrait {
         width: 250px;
         height: 250px;
-        background: url('../img/b3.jpg');
-        border-radius: 50%;
-        border: 3px solid blue;
-        transform: translate3d(-600px, 0, 0);
+        background: url('../img/b2.jpg');
+        // border-radius: 50%;
+        border: 3px solid $secondary-color;
+        // transform: translate3d(-900px, 0, 0);
+        transform: scale(0.1);
+
         // transition-delay: 0.2s;
         
 
         @include easeInOut;
 
         &.show {
-            transform: translate3d(0, 0, 0);
-            transition-delay: 0.2s;
+            // transform: translate3d(0, 0, 0);
+            transform: scale(1) rotate(5turn);
+            transition-delay: 0.3s;
         }
     }
 
@@ -123,7 +128,7 @@
         text-transform: uppercase;
         padding: 1rem 0;
         font-weight: 300;
-        color: #fff;
+        color: set-text-color($primary-color);
         @include easeInOut;
         
         &:hover {

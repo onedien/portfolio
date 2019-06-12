@@ -46,6 +46,7 @@
   .menu-nav {
     margin: 0;
     padding: 0;
+    border-left: 0.5px solid red;
     background: #373737;
     list-style: none;
     transform: translate3d(0, -100%, 0);
@@ -54,6 +55,7 @@
       transform: translate3d(0, 0, 0); }
   .menu-branding {
     background: #444;
+    border-right: 0.5px solid red;
     transform: translate3d(0, 100%, 0);
     transition: all 0.5s ease-in-out; }
     .menu-branding.show {
@@ -61,14 +63,13 @@
   .menu .portrait {
     width: 250px;
     height: 250px;
-    background: url("../img/b3.jpg");
-    border-radius: 50%;
-    border: 3px solid blue;
-    transform: translate3d(-600px, 0, 0);
+    background: url("../img/b2.jpg");
+    border: 3px solid #eb0000;
+    transform: scale(0.1);
     transition: all 0.5s ease-in-out; }
     .menu .portrait.show {
-      transform: translate3d(0, 0, 0);
-      transition-delay: 0.2s; }
+      transform: scale(1) rotate(5turn);
+      transition-delay: 0.3s; }
   .menu .nav-item {
     transform: scale(0.01);
     transition: all 0.5s ease-in-out; }
@@ -116,41 +117,12 @@
 .nav-item.show:nth-child(10) {
   transition-delay: 1s; }
 
-@media screen and (max-width: 768px) {
-  main {
-    align-items: center;
-    text-align: center; }
-    main .lg-heading {
-      line-height: 1;
-      margin-bottom: 1rem; }
-  ul.menu-nav, div.menu-branding {
-    float: none;
-    width: 100%;
-    min-height: 0; }
-    ul.menu-nav.show, div.menu-branding.show {
-      transform: translate3d(0, 0, 0); }
-  .menu-nav {
-    height: 75vh;
-    transform: translate3d(-100%, 0, 0);
-    font-size: 24px; }
-  .menu-branding {
-    height: 25vh;
-    transform: translate3d(100%, 0, 0); }
-    .menu-branding .portrait {
-      background: url("../img/b3.jpg");
-      width: 150px;
-      height: 150px; } }
-
-@media screen and (max-width: 500px) {
-  main#home h1 {
-    margin-top: 10vh; } }
-
 * {
   box-sizing: border-box; }
 
 body {
   background: #444;
-  color: white;
+  color: #fff;
   height: 100%;
   margin: 0;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -193,7 +165,7 @@ header {
 
 main {
   padding: 4rem;
-  height: 100%; }
+  min-height: calc(100vh - 60px); }
   main .icons {
     margin-top: 1rem; }
     main .icons a {
@@ -205,3 +177,65 @@ main {
     overflow: hidden; }
     main#home h1 {
       margin-top: 20vh; }
+
+.about-info {
+  display: grid;
+  grid-gap: 30px;
+  grid-template-areas: 'bioimage bio bio' 'job1 job2 job3';
+  grid-template-columns: repeat(3, 1fr); }
+  .about-info .bio-image {
+    grid-area: bioimage;
+    margin: auto;
+    border: #eb0000 3px solid; }
+  .about-info .bio {
+    grid-area: bio;
+    font-size: 1.5rem; }
+  .about-info .job-1 {
+    grid-area: job1; }
+  .about-info .job-2 {
+    grid-area: job2; }
+  .about-info .job-3 {
+    grid-area: job3; }
+  .about-info .job {
+    background: #515151;
+    padding: 0.5rem;
+    border-bottom: #eb0000 5px solid; }
+
+#main-footer {
+  text-align: center;
+  padding: 1rem;
+  background: #2b2b2b;
+  color: #fff;
+  height: 60px; }
+
+@media screen and (max-width: 768px) {
+  main {
+    align-items: center;
+    text-align: center; }
+    main .lg-heading {
+      line-height: 1;
+      margin-bottom: 1rem; }
+  ul.menu-nav, div.menu-branding {
+    float: none;
+    width: 100%;
+    min-height: 0; }
+    ul.menu-nav.show, div.menu-branding.show {
+      transform: translate3d(0, 0, 0); }
+  .menu-nav {
+    height: 75vh;
+    transform: translate3d(-100%, 0, 0);
+    font-size: 24px; }
+  .menu-branding {
+    height: 25vh;
+    transform: translate3d(100%, 0, 0); }
+    .menu-branding .portrait {
+      background: url("../img/portrait.jpg");
+      width: 150px;
+      height: 150px; }
+  .about-info {
+    grid-template-areas: 'bioimage' 'bio' 'job1' 'job2' 'job3';
+    grid-template-columns: 1fr; } }
+
+@media screen and (max-width: 500px) {
+  main#home h1 {
+    margin-top: 10vh; } }
